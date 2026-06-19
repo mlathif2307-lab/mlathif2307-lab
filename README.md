@@ -7,7 +7,7 @@ I am an Informatics Engineering student at Perbanas Institute, blending my creat
 - 🔐 Currently focusing my studies on software development and building a strong foundation for Cyber Security.
 
 ## 🛠️ Tech Stack & Skills
-- **Languages & Web:** HTML, JavaScript, Python
+- **Languages & Web:** C++, HTML, JavaScript, Python
 - **Frameworks & Database:** Flet, Flask, SQLite
 - **Design & Multimedia:** UI/UX Design, Video Editing (Adobe Premiere Pro), Graphic Design (Canva)
 
