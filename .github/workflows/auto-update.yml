@@ -6,14 +6,15 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GH_TOKEN }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -25,7 +26,7 @@ jobs:
 
       - name: Fetch and Update Skills
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python << 'PYEOF'
           import requests
@@ -67,5 +68,6 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mlathif2307-lab/mlathif2307-lab.git
           git add README.md
-          git diff --staged --quiet || git commit -m 'auto: update languages tech stack' && git push
+          git diff --staged --quiet || (git commit -m 'auto: update languages tech stack' && git push)
